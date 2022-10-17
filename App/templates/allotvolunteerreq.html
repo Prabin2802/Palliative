@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+  <title>View Volunteer Status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'table2.css' %}"/>
+  {% include "clinicheader.html" %}
+</head>
+
+   <table class="table">
+    <caption> View Volunteer Status</caption>
+     <thead>
+        <tr>
+            <th>Allot ID</th>
+            <th>Volunteer ID</th>
+            <th>Allot Date</th>
+            <th>Request Date</th>
+            <th>Patient Name</th>
+            <th>Comment</th>
+            <th>Status</th>
+            <th>Updates</th>
+            
+           </tr>
+       </thead>
+       <tbody>
+          
+             <tr>
+              <td data-label="Allot ID">{{data.allot_id}}</td>
+              <td data-label="Volunteer ID">{{data.volunteer_id_id}}</td>
+                   <td data-label="Allot Date">{{data.allot_dt}}</td>
+                   <td data-label="Request Date">{{data.request_id.request_dt}}</td>
+                   <td data-label="Patient Name">{{data.patient_id.name}}</td>
+              <td data-label="Comment">{{data.comment}}</td>
+              <td data-label="Status">{{data.status}}</td>
+                   <td data-label="Updates">{{data.updates}}</td>
+                </form>
+              
+             </tr>
+           
+       </tbody>
+     </table>
+  
+  </body>
+  </html>

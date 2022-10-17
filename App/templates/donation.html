@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+   {% load static %}
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Donation Registration</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'css/2.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'css/contact1.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'css/responsive1.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         {% include "indexheader.html" %}
+      </header>
+      <!-- end header inner -->
+      <!-- end header -->
+      <div id="contact" class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div><br><br></div>
+                  <div class="titlepage">
+                     <h2> Donation Registration</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row d_flex">
+               <div class="col-md-12">
+                  <form id="request" method="post" action="/regdonation/" class="main_form">
+                      {% csrf_token %}
+                     <div class="row">
+                        <div class="col-md-6 ">
+                            <label>Donation ID</label>
+                            <input class="form_control" type="text" name="donationid" value="{{ donid }}" readonly> 
+                         </div>
+                        <div class="col-md-6 ">
+                           <label>Donor Name</label>
+                           <input class="form_control" placeholder="" type="text" name="donationname" required> 
+                        </div>
+                        <div class="col-md-12">
+                            <label>Address</label>
+                            <textarea class="textarea" placeholder="" name="address"></textarea>
+                         </div>
+                        <div class="col-md-6">
+                           <label>Email</label>
+                           <input class="form_control" placeholder="" type="email" name="email" required> 
+                        </div>
+                        <div class="col-md-6">
+                           <label>Phone Number</label>
+                           <input class="form_control" placeholder="" type="tel" name="phone" required>                          
+                        </div>
+                         <div class="col-md-6">
+                            <label>Item Name</label>
+                            <select class="form_control" name="name">
+                               <option value="" disabled selected>-Select-</option>
+                               <option value="Walking stick" >Walking stick</option>
+                               <option value="Wheel chair">Wheel chair</option>
+                               <option value="Water bed">Water bed</option>
+                               <option value="Air bed">Air bed</option>
+                               <option value="Walker">Walker</option>
+                               <option value="Other">Other</option>
+                            </select>
+                         </div>
+                         <div class="col-md-6">
+                           <label>Item Description</label>
+                           <select class="form_control" name="description">
+                              <option value="" disabled selected>-Select-</option>
+                              <option value="New" >New</option>
+                              <option value="Nearly New">Nearly New</option>
+                              <option value="Old">Old</option>
+                           </select>
+                        </div>
+                         
+                         <input type="hidden" value="{{data}}" name="s1">
+                        <script>
+                           var a=parseInt(f1.s1.value);
+                           if(a==1)
+                           {
+                              alert("successfully Inserted...")
+                           }
+                        </script>
+                        <div class="col-md-12">
+                           <button class="send_btn">Register</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
+

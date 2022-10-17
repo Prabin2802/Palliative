@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+  <title>Verify Volunteer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'table2.css' %}"/>
+  {% include "adminheader.html" %}
+</head>
+
+   <table class="table">
+    <caption>View Donation</caption>
+     <thead>
+     	<tr>
+     	 <th>Donation ID</th>
+          <th>Donation Name</th>
+     	 <th>Address</th>
+     	 <th>Phone</th>
+          <th>Email</th>
+          <th>Item Name</th>
+     	 <th>Item Description</th>
+            <th>Donation Date</th>
+          <th>Status</th>
+          <th></th>
+         
+     	</tr>
+     </thead>
+     <tbody>
+         {% for a in data %}
+     	  <tr>
+            <td data-label="donationid">{{a.Donationid}}</td>
+            <td data-label="donationname">{{a.Donationname}}</td>
+     	  	  <td data-label="address">{{a.Address}}</td>
+     	  	  <td data-label="phone">{{a.Phonenumber}}</td>
+     	  	  <td data-label="email">{{a.Email}}</td>
+            <td data-label="name">{{a.Itemname}}</td>
+            <td data-label="description">{{a.Itemdescription}}</td>
+     	  	  <td data-label="donationdate">{{a.Donationdate}}</td>
+     	  	  <td data-label="status">{{a.status}}</td>
+                 <form method="post" action="/accept/{{a.Donationid}}">
+                    {% csrf_token %}
+          
+                    <td><button type="submit" value="Accepted" class="btn1">Accept</button></td>
+                </form>
+                
+            
+     	  </tr>
+           {% endfor %}
+     </tbody>
+   </table>
+
+</body>
+</html>

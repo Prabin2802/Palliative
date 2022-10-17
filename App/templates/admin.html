@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      {% load static %}
+    <meta charset="UTF-8">
+    <title> Admin </title>
+    <link rel="stylesheet" href="{% static 'css/cust.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <nav>
+    <div class="navbar">
+      <i class='bx bx-menu'></i>
+      <div class="logo"><a href="#">Admin</a></div>
+      <div class="nav-links">
+        <div class="sidebar-logo">
+          <span class="logo-name">Admin</span>
+          <i class='bx bx-x' ></i>
+        </div>
+        <ul class="links">
+            <li><a href="/index">HOME</a></li>
+            <li>
+                <a href="#">Zone Management</a>
+                <i class='bx bxs-chevron-down dept-arrow arrow  '></i>
+                <ul class="dept-sub-menu sub-menu">
+                  <li><a href="/add_zone">Add Zone</a></li>
+                  <li><a href="/remove_zone">Remove Zone</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Volunteer Management</a>
+                <i class='bx bxs-chevron-down course-arrow arrow  '></i>
+                <ul class="course-sub-menu sub-menu">
+                  <li><a href="/verify_volunteer">Verify Volunteer</a></li>
+                  <li><a href="/remove_volunteer">Remove Volunteer</a></li>
+                  <li><a href="/add_volunteer">Add Volunteer</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Donation</a>
+                <i class='bx bxs-chevron-down course-arrow arrow  '></i>
+                <ul class="course-sub-menu sub-menu">
+                  <li><a href="/viewdonation">View Donation</a></li>
+                  
+                </ul>
+              </li>
+            
+            <li><a href="#">Report</a>
+              <i class='bx bxs-chevron-down course-arrow arrow  '></i>
+                <ul class="course-sub-menu sub-menu">
+                  <li><a href="/adminreport">View Report</a></li>
+                  <li><a href="/viewupdate">View Update</a></li>
+                  
+            </li>
+          
+        </ul>
+        <li><a href="/logout">Logout</a></li>
+      </div>
+      <div class="search-box">
+        <i class='bx bx-search'></i>
+        <div class="input-box">
+          <input type="text" placeholder="Search...">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script src="{% static 'js/admin.js' %}"></script>
+</body>
+</html>

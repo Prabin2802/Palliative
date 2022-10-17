@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+  <title>Complaint</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'table2.css' %}"/>
+  {% include "adminheader.html" %}
+</head>
+
+   <table class="table">
+    <caption>Complaint</caption>
+    <thead>
+        <tr>
+         <th>Complaint ID</th>
+         <th>Complaint Date</th>
+         <th>Complaint</th>
+         <th>Patient name</th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in data %}
+          <tr>
+           <td data-label="Complaint ID">{{a.Complaintid}}</td>
+           <td data-label="Complaint date">{{a.Complaintdate}}</td>
+                <td data-label="Complaint">{{a.Complaint}}</td>
+                <td data-label="Patientid">{{a.patient_id.name}}</td> 
+             </form>
+           
+          </tr>
+           {% endfor %}
+     </tbody>
+   </table>
+
+</body>
+</html>

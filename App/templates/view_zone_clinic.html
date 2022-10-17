@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+  <title>Update Clinic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'table2.css' %}"/>
+  {% include "zoneheader.html" %}
+</head>
+
+   <table class="table">
+    <caption>Update Clinic</caption>
+     <thead>
+     	<tr>
+     	 <th>Clinic ID</th>
+          <th>Zone ID</th>
+     	 <th>Clinic Name</th>
+          <th>Contact Person</th>
+     	 <th>Phone</th>
+          <th>Email</th>
+          <th></th>
+     	</tr>
+     </thead>
+     <tbody>
+         {% for a in data %}
+     	  <tr>
+            <td data-label="Clinic ID">{{a.clinic_id}}</td>
+            <td data-label="Zone ID">{{a.zone_id_id}}</td>
+            <td data-label="Clinic Name">{{a.clinic_name}}</td>
+     	  	  <td data-label="Contact Person">{{a.contact_person}}</td>
+            <td data-label="Phone">{{a.phone}}</td>
+            <td data-label="Email">{{a.email}}</td>
+            <td><a href="/update_clinic/{{a.clinic_id}}">Update</a></td>  
+     	  </tr>
+           {% endfor %}
+     </tbody>
+   </table>
+
+</body>
+</html>

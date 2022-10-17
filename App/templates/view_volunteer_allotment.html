@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+  <title>View Volunteer Allotment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'table2.css' %}"/>
+  {% include "zoneheader.html" %}
+</head>
+
+   <table class="table">
+    <caption> View Volunteer Allotment</caption>
+     <thead>
+     	<tr>
+     	 <th>Allot ID</th>
+          <th>Volunteer ID</th>
+     	 <th>Allot Date</th>
+     	 <th>Request Date</th>
+     	 <th>Patient Name</th>
+     	 <th>Comment</th>
+          <th>Status</th>
+          <th>Updates</th>
+          <th></th>
+          <th></th>
+          
+     	</tr>
+     </thead>
+     <tbody>
+         {% for a in data %}
+     	  <tr>
+            <td data-label="Allot ID">{{a.allot_id}}</td>
+            <td data-label="Volunteer ID">{{a.volunteer_id_id}}</td>
+     	  	  <td data-label="Allot Date">{{a.allot_dt}}</td>
+     	  	  <td data-label="Request Date">{{a.request_id.request_dt}}</td>
+     	  	  <td data-label="Patient Name">{{a.patient_id.name}}</td>
+            <td data-label="Comment">{{a.comment}}</td>
+            <td data-label="Status">{{a.status}}</td>
+     	  	  <td data-label="Updates">{{a.updates}}</td>
+             <form method="post" action="/acceptallot/{{a.allot_id}}">
+              {% csrf_token %}
+              <td><button type="submit" value="Accepted" class="btn1">Accept</button></td>
+          </form>
+          <form method="post" action="/rejectallot/{{a.allot_id}}">
+              {% csrf_token %}
+              <td><button type="submit" value="Rejected" class="btn2">Reject</button></td>
+              </form>
+              </form>
+            
+     	  </tr>
+           {% endfor %}
+     </tbody>
+   </table>
+
+</body>
+</html>

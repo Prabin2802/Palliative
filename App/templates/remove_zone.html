@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+  <title>Remove Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'table2.css' %}"/>
+  {% include "adminheader.html" %}
+</head>
+
+   <table class="table">
+   
+     <thead>
+     	<tr>
+     	 <th>Zone ID</th>
+          <th>Zone Name</th>
+     	 <th>Authority Name</th>
+     	 <th>Phone</th>
+          <th>Email</th>
+          <th></th>
+     	</tr>
+     </thead>
+     <tbody>
+         {% for a in data %}
+     	  <tr>
+            <td data-label="Zone ID">{{a.zone_id}}</td>
+            <td data-label="Zone Name">{{a.zone}}</td>
+     	  	  <td data-label="Authority Name">{{a.authority_name}}</td>
+            <td data-label="Phone">{{a.phone}}</td>
+            <td data-label="Email">{{a.email}}</td>
+            <td><a href="/removezone/{{a.zone_id}}">Remove</a></td>  
+     	  </tr>
+           {% endfor %}
+     </tbody>
+   </table>
+<form name="f1">
+  <input type="hidden" value="{{data1}}" name="s1">
+  <script>
+     var a=parseInt(f1.s1.value);
+     if(a==1)
+     {
+        alert("successfully removed...")
+     }
+  </script>
+</form>
+</body>
+</html>

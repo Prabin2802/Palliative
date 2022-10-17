@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+  <title>Verify Volunteer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'table2.css' %}"/>
+  {% include "adminheader.html" %}
+</head>
+
+   <table class="table">
+    <caption>Verify Volunteer</caption>
+     <thead>
+     	<tr>
+     	 <th>Volunteer ID</th>
+          <th>Name</th>
+     	 <th>Age</th>
+     	 <th>Gender</th>
+     	 <th>Address</th>
+     	 <th>Phone</th>
+          <th>Email</th>
+          <th>City</th>
+     	 <th>Location</th>
+     	 <th>Zone Name</th>
+            <th>Clinic Name</th>
+          <th>Status</th>
+          <th></th>
+          
+     	</tr>
+     </thead>
+     <tbody>
+         {% for a in data %}
+     	  <tr>
+            <td data-label="Volunteer ID">{{a.volunteer_id}}</td>
+            <td data-label="Name">{{a.name}}</td>
+     	  	  <td data-label="Age">{{a.age}}</td>
+     	  	  <td data-label="Gender">{{a.gender}}</td>
+     	  	  <td data-label="Address">{{a.address}}</td>
+            <td data-label="Phone">{{a.phone}}</td>
+            <td data-label="Email">{{a.email}}</td>
+     	  	  <td data-label="City">{{a.city}}</td>
+     	  	  <td data-label="Location">{{a.location}}</td>
+                 <td data-label="Zone Name">{{a.zone_id.zone}}</td>
+     	  	  <td data-label="Clinic Name">{{a.clinic_id.clinic_name}}</td>
+                <td data-label="Status">{{a.status}}</td>
+                <td><a href="/removevlounteer/{{a.volunteer_id}}">Remove</a></td> 
+     	  </tr>
+           {% endfor %}
+     </tbody>
+   </table>
+
+</body>
+</html>
